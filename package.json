@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.ts",
-    "seed": "ts-node --transpile-only src/seeders/index.ts"
+    "seed": "ts-node --transpile-only src/seeders/index.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
