@@ -23,14 +23,14 @@ config();
 
 const hostname = "localhost";
 const port = 8080;
-const fe_access = process.env.fe_access;
+const fe_access = process.env.FE_ACCESS;
 
 const app = express();
 const server = http.createServer(app);
 
 export const io = new Server(server, {
     cors: {
-        origin: [`${fe_access}`, `http://localhost:8080`],
+        origin: [`${fe_access}`, `${process.env.BASE_URL}`],
         credentials: true,
     },
 });
@@ -65,6 +65,6 @@ const assignSocketToReq = (req: any, res: Response, next: Function) => {
 };
 app.use(assignSocketToReq as any);
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
     console.log(`Server running at ${process.env.BASE_URL}`);
 });
